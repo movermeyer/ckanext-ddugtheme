@@ -1,0 +1,180 @@
+{% ckan_extends %}
+{% block content %}
+{#
+  <div class="homepage layout-{{ homepage_style }}">
+    <div class="container">
+      {{ self.flash() }}
+    </div>
+    {% block primary_content %}
+      {% snippet "home/layout{0}.html".format(homepage_style) %}
+    {% endblock %}
+  </div>
+#}
+
+<div class="main-container container">
+
+  <header role="banner" id="page-header">
+    
+      </header> <!-- /#page-header -->
+
+  <div class="row">
+
+    
+    <section class="col-sm-12">
+                  <a id="main-content"></a>
+                    <h1 class="page-header">Home</h1>
+                                                          <div class="region region-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <div class="panel-flexible panels-flexible-1 clearfix">
+<div class="panel-flexible-inside panels-flexible-1-inside">
+<div class="panels-flexible-region panels-flexible-region-1-center panels-flexible-region-first panels-flexible-region-last">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-1-center-inside panels-flexible-region-inside-first panels-flexible-region-inside-last">
+<div class="panel-bootstrap-pane jumbotron pane-pane pane-homepage-intro">
+  
+      
+  
+  
+  <div class="jumbotron-body">
+    <h2>The home of Uganda's Open Data</h2>
+<p>Here you will find data, tools, and resources to conduct research, develop web and mobile applications, design data visualizations, and more.
+
+
+</p>
+  </div>
+
+  
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-ckan-search-ckan-search-block">
+  
+        <h2 class="pane-title">Search the data</h2>
+    
+  
+  <div class="pane-content">
+    <form role="search" method="get" class="search-form form-inline" action="http://catalog.data.ug/dataset">
+  <div class="input-group">
+    <input id="search-header" title="Example searches: Agriculture,Fishing,Housing" data-strings="{&quot;targets&quot;:[&quot;Agriculture&quot;,&quot;Fishing&quot;,&quot;Housing&quot;]}" value="" name="q" class="search-field form-control" placeholder="Agriculture" type="search">
+    <input name="sort" value="score desc, name asc" type="hidden">
+      <span class="input-group-btn">
+      <button type="submit" class="search-submit btn btn-default">
+           <i class="fa fa-search"></i>
+           <span class="sr-only">Search</span>
+       </button>
+    </span>
+  </div>
+</form>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-wwwdu-views-homepage">
+  
+      
+  
+  <div class="pane-content">
+    <div class="view view-wwwdu-views-homepage view-id-wwwdu_views_homepage view-display-id-block_1 view-dom-id-73eaaf0c189f8c1b37f87c1ebb5aab95">
+        
+  
+      <div class="attachment attachment-before">
+      <div class="view view-wwwdu-views-homepage view-id-wwwdu_views_homepage view-display-id-attachment_1 newshighlight">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div about="/data-privacy-uganda" typeof="sioc:Post sioct:BlogPost" class="ds-1col node node-blog node-promoted node-teaser view-mode-teaser clearfix">
+
+  
+  <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even" property="dc:title"><h2><a href="/data-privacy-uganda">Data Privacy in Uganda &ndash; Data Dot Ug Event, Friday October 31 st 2014</a></h2></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Last Friday of the month equals Data Dot Ug Event. This time it was about the latest regarding data privacy in general, and in Uganda in particular. Chris Lukolyo from UN Global Pulse joined us for the day. Data privacy is still very much a new concept in general around the world. People still find it hard to understand what data privacy actually means and how it can help them (or trouble them).</p></div></div></div></div>
+
+  </div>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/rss.xml">
+    more  </a>
+</div>
+  
+  
+  
+</div>    </div>
+ 
+<!-- 
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div about="/wiki-with-erina-mukuta" typeof="sioc:Post sioct:BlogPost" class="ds-1col node node-blog node-promoted node-teaser view-mode-teaser clearfix">
+
+  
+  <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even" property="dc:title"><h2><a href="/wiki-with-erina-mukuta">Data Dot Ug Event: Wiki with Erina Mukuta</a></h2></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://www.data.ug/sites/dataportalge02.drupal01.mountbatten.me.uk/files/wqwe.png">Friday the 26th of September it was time for our next Data Dot Ug Event! (Previously known as Open Data Day). This time we had Erina Mukuta on board: a promising start for a Wiki filled day! That is right: Wiki. Wikimedia, an international non-for-profit organization with Wikipedia as it's most known branch. </p></div></div></div></div>
+
+  </div>
+    </div>
+  
+
+  
+      
+<div class="more-link">
+  <a href="/rss.xml">
+    more  </a>
+</div>
+
+-->    
+
+{% snippet 'snippets/ddugtheme_blog_list.html', pages=h.get_recent_blog_posts(5) , type='blog' %}
+
+
+
+</div>  </div>
+
+  
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+</section> <!-- /.block -->
+  </div>
+    </section>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+{#
+{% extends "page.html" %}
+
+
+{% set pkg = c.pkg_dict or pkg_dict %}
+
+{% block breadcrumb_content_selected %} class="active"{% endblock %}
+
+{% block subtitle %}{{ _('Datasets') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  {% if pkg %}
+    {% set dataset = pkg.title or pkg.name %}
+    {% if pkg.organization %}
+      {% set organization = pkg.organization.title or pkg.organization.name %}
+      <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
+      <li>{% link_for organization|truncate(30), controller='organization', action='read', id=pkg.organization.name %}</li>
+    {% else %}
+      <li>{% link_for _('Datasets'), controller='package', action='search' %}</li>
+    {% endif %}
+    <li{{ self.breadcrumb_content_selected() }}>{% link_for dataset|truncate(30), controller='package', action='read', id=pkg.name %}</li>
+  {% else %}
+    <li>{% link_for _('Datasets'), controller='package', action='search' %}</li>
+    <li class="active"><a href="">{{ _('Create Dataset') }}</a></li>
+  {% endif %}
+{% endblock %}
+#}

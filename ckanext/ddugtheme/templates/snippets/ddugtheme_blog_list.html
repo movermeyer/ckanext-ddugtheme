@@ -1,0 +1,192 @@
+{% set pages_total = pages|length %}
+{% set action = '{0}_show'.format(type) %}
+
+{#
+{% if type == 'blog' %}
+  <h2>{{ _('1 blog article') if pages_total == 1 else _('{0} blog articles').format(pages_total) }}</h2>
+{% else %}
+  <h2>{{ _('1 page') if pages_total == 1 else _('{0} pages').format(pages_total) }}</h2>
+{% endif %}
+#}
+
+
+{#
+{% if type == 'blog' %}
+  <h2>Blog</h2>
+{% else %}
+  <h2>Pages</h2>
+{% endif %}
+#}
+
+{% if pages %}
+  {% set editor = h.get_wysiwyg_editor() %}
+
+    {% for page in pages %}
+
+      {% if id %} {# this is for orgs and groups #}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action=action, id=id, page='/' + page.name) %}
+      {% elif type == 'blog' %}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + page.name) %}
+      {% else %}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
+      {% endif %}
+{#
+      <div class="row page-list-item dataset-item">
+      {% if page.image %}
+        <div class="span3 image">
+          <a style="background-image:url({{ page.image }})" href="{{ url }}">
+          </a>
+        </div>
+        <div class="span9">
+           <h2 class="dataset-heading">
+              <a href="{{ url }}" >{{ page.title }}</a>
+              {% if page.publish_date %}
+                 <small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+              {% endif %}
+            </h2>
+            {% if page.content %}
+              {% if editor %}
+              <div>
+                {{page.content|striptags|truncate}}
+              </div>
+              {% else %}
+                {{ h.markdown_extract(page.content) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+        </div>
+      {% else %}
+        <div class="span11">
+          <h2 class="dataset-heading">
+            <a href="{{ url }}" >{{ page.title }}</a>
+            {% if page.publish_date %}
+               <small class="muted date"> {{ h.render_datetime(page.publish_date) }} </small>
+            {% endif %}
+          </h2>
+          {% if page.content %}
+            {% if editor %}
+            <div>
+              {{page.content|striptags|truncate}}
+            </div>
+            {% else %}
+              {{ h.markdown_extract(page.content) }}
+            {% endif %}
+          {% else %}
+            <p class="empty">{{ _('This page currently has no content') }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      </div>
+
+#}
+
+<!-- =================  -->
+<div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div about="/wiki-with-erina-mukuta" typeof="sioc:Post sioct:BlogPost" class="ds-1col node node-blog node-promoted node-teaser view-mode-teaser clearfix">
+
+  
+  <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items">
+
+<!------>
+<div class="span12">
+	<div class="field-item even" property="dc:title">
+	<h2>
+	<a href="{{ url }}">{{ page.title }}</a>
+		{% if page.publish_date %}
+		<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+		{% endif %}
+	</h2>
+	</div>
+</div>
+<!--------------->
+
+</div></div>
+
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded">
+
+
+
+
+    {% if page.image %}
+        <div class="span4">
+	 <a href="{{ url }}">
+		<img src="{{ page.image }}"> 
+	 </a>
+
+        </div>
+        <div class="span8">
+{#
+<!----------->
+<div class="field-item even" property="dc:title">
+<h2>
+<a href="{{ url }}">{{ page.title }}</a>
+	{% if page.publish_date %}
+	<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+	{% endif %}
+</h2>
+</div>
+<!--------------->
+#}
+            {% if page.content %}
+              {% if editor %}
+              <div>
+              <p>{{page.content|striptags|truncate}}</p>
+              </div>
+              {% else %}
+                {{ h.markdown_extract(page.content) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+        </div>
+    {% else %}
+         <div class="span11">
+{#
+<!----------->
+<div class="field-item even" property="dc:title">
+<h2>
+<a href="{{ url }}">{{ page.title }}</a>
+	{% if page.publish_date %}
+	<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+	{% endif %}
+</h2>
+</div>
+<!--------------->
+#}
+            {% if page.content %}
+              {% if editor %}
+              <div>
+              <p> {{page.content|striptags|truncate}}</p>
+              </div>
+              {% else %}
+                {{ h.markdown_extract(page.content) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+	<div class="more-link">
+	  <a href="/rss.xml">
+	    Show More  </a>
+	</div>
+         </div>
+    {% endif %}
+</div></div></div></div>
+
+
+
+  </div>
+    </div>
+<!-- ================= -->
+
+    {% endfor %}
+
+{% else %}
+    {% if type == 'blog' %}
+      <p class="empty">{{ _('There are currently no blog articles here') }}</p>
+    {% else %}
+      <p class="empty">{{ _('There are currently no pages here') }}</p>
+    {% endif %}
+{% endif %}
+
