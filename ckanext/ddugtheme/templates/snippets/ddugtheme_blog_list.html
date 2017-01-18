@@ -23,6 +23,7 @@
 
     {% for page in pages %}
 
+
       {% if id %} {# this is for orgs and groups #}
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action=action, id=id, page='/' + page.name) %}
       {% elif type == 'blog' %}
@@ -31,6 +32,15 @@
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
       {% endif %}
 {#
+
+
+
+
+
+
+
+
+
       <div class="row page-list-item dataset-item">
       {% if page.image %}
         <div class="span3 image">
@@ -81,6 +91,48 @@
 
 #}
 
+        {% if not loop.first %}
+<div class="attachment attachment-before">
+      <div class="view view-wwwdu-views-homepage view-id-wwwdu_views_homepage view-display-id-attachment_1 newshighlight">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div about="/data-privacy-uganda" typeof="sioc:Post sioct:BlogPost" class="ds-1col node node-blog node-promoted node-teaser view-mode-teaser clearfix">
+
+  
+  <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even" property="dc:title">	
+<h2>
+	<a href="{{ url }}">{{ page.title }}</a>
+		{% if page.publish_date %}
+		<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+		{% endif %}
+	</h2>
+
+</div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items">
+<div class="field-item even" property="content:encoded">
+
+{% snippet 'snippets/ddugtheme_blog_item.html', page=page  %}
+
+</div></div></div></div>
+
+  </div>
+    </div>
+  
+  
+  
+{#      
+<div class="more-link">
+  <a href="/rss.xml">
+    more  </a>
+</div>
+#}  
+  
+  
+</div>    </div>
+        {% else %}
+
 <!-- =================  -->
 <div class="view-content">
         <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
@@ -104,74 +156,9 @@
 
 </div></div>
 
-<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded">
-
-
-
-
-    {% if page.image %}
-        <div class="span4">
-	 <a href="{{ url }}">
-		<img src="{{ page.image }}"> 
-	 </a>
-
-        </div>
-        <div class="span8">
-{#
-<!----------->
-<div class="field-item even" property="dc:title">
-<h2>
-<a href="{{ url }}">{{ page.title }}</a>
-	{% if page.publish_date %}
-	<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
-	{% endif %}
-</h2>
-</div>
-<!--------------->
-#}
-            {% if page.content %}
-              {% if editor %}
-              <div>
-              <p>{{page.content|striptags|truncate}}</p>
-              </div>
-              {% else %}
-                {{ h.markdown_extract(page.content) }}
-              {% endif %}
-            {% else %}
-              <p class="empty">{{ _('This page currently has no content') }}</p>
-            {% endif %}
-        </div>
-    {% else %}
-         <div class="span11">
-{#
-<!----------->
-<div class="field-item even" property="dc:title">
-<h2>
-<a href="{{ url }}">{{ page.title }}</a>
-	{% if page.publish_date %}
-	<small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
-	{% endif %}
-</h2>
-</div>
-<!--------------->
-#}
-            {% if page.content %}
-              {% if editor %}
-              <div>
-              <p> {{page.content|striptags|truncate}}</p>
-              </div>
-              {% else %}
-                {{ h.markdown_extract(page.content) }}
-              {% endif %}
-            {% else %}
-              <p class="empty">{{ _('This page currently has no content') }}</p>
-            {% endif %}
-	<div class="more-link">
-	  <a href="/rss.xml">
-	    Show More  </a>
-	</div>
-         </div>
-    {% endif %}
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>
+{% snippet 'snippets/ddugtheme_blog_item.html', page=page  %}
+</p>
 </div></div></div></div>
 
 
@@ -179,7 +166,7 @@
   </div>
     </div>
 <!-- ================= -->
-
+        {% endif %}
     {% endfor %}
 
 {% else %}

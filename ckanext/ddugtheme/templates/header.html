@@ -76,6 +76,7 @@
             <a title="Home" href="{{ h.url('home') }}" class="logo navbar-btn pull-left">
         <img alt="Home" src="/logo.png" style="width: 250px; height: 42px;">
       </a>
+{#
         {% if g.site_logo %}
           <a class="logo" href="http://localhost:5000/"><img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
         {% else %}
@@ -84,7 +85,7 @@
           </h1>
           {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
         {% endif %}      
-      
+ #}     
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
         <span class="sr-only">Toggle navigation</span>
@@ -97,7 +98,7 @@
           <div class="navbar-collapse collapse">
         <nav role="navigation">
                       <ul class="menu nav navbar-nav">
-{{ h.build_nav('home', _('Data')) }}
+{{ h.build_nav('home', _('Home')) }}
 {{ h.build_nav('search', _('Data')) }}
 <li class="first leaf"><a href="http://maps.data.ug">Maps</a></li>
 

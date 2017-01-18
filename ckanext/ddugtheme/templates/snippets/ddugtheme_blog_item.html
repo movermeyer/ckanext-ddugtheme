@@ -1,0 +1,40 @@
+{% if page.image %}
+        <div class="span4">
+	 <a href="{{ url }}">
+		<img src="{{ page.image }}"> 
+	 </a>
+
+        </div>
+        <div class="span8">
+
+            {% if page.content %}
+              {% if editor %}
+              <div>
+              <p>{{page.content|striptags|truncate}}</p>
+              </div>
+              {% else %}
+                {{ h.markdown_extract(page.content) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+        </div>
+{% else %}
+         <div class="span12">
+            {% if page.content %}
+              {% if editor %}
+              <div>
+              <p> {{page.content|striptags|truncate}}</p>
+              </div>
+              {% else %}
+                {{ h.markdown_extract(page.content) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+	<div class="more-link">
+	  <a href="/rss.xml">
+	    Show More  </a>
+	</div>
+         </div>
+{% endif %}
