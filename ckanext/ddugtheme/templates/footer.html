@@ -1,5 +1,3 @@
-
-
 <footer class="footer">
     <div class="region region-footer well well-lg container">
     <section class="block block-multiblock clearfix" id="block-multiblock-2">
@@ -20,26 +18,45 @@
 
       
   <ul class="menu nav"><li class="first leaf"><a href="http://www.data.ug/">Home</a></li>
-<li class="leaf"><a title="Datasets for Data.Ug" href="http://catalog.data.ug">Data</a></li>
+<li class="leaf"><a title="Datasets for Data.Ug" href="http://catalog.data.ug">Datasets</a></li>
+<li class="leaf"><a title="Datasets for Data.Ug" href="http://maps.data.ug">Maps</a></li>
+
+
+<!--
 <li class="expanded dropdown"><a data-toggle="dropdown" class="dropdown-toggle" data-target="#" title="Maps on Data.Ug" href="http://maps.data.ug">Maps <span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a title="Map layers about Uganda" href="http://maps.data.ug">Layers</a></li>
 <li class="last leaf"><a title="Map Publishers" href="http://maps.data.ug/people">People</a></li>
 </ul></li>
-<li class="leaf active-trail active"><a class="active-trail active" title="All documentation about Data.Ug" href="http://www.data.ug/book">Documentation</a></li>
-<li class="last leaf"><a title="News Items" href="http://www.data.ug/blog">News</a></li>
+
+-->
+
+<!--
+<li class="leaf active-trail active"><a class="active-trail active" title="All documentation about Data.Ug" href="http://www.data.ug/book">Documentation</a></li> 
+-->
+<li class="last leaf"><a title="News Items" href="http://www.data.ug/blog">News
+</a></li>
 </ul>
+
 </section> <!-- /.block -->
 <section class="block block-menu clearfix" id="block-menu-menu-content">
+{% if c.controller == "home" %}
+ 
+	<a class="twitter-timeline" data-width="100%" data-height="250" href="https://twitter.com/datadotug">Tweets by datadotug</a> 
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+	</script>
+{% endif %}      
 
-      
-  <ul class="menu nav"><li class="first leaf"><a href="http://www.data.ug/about">About</a></li>
+<!--
   <li class="last leaf"><a title="Login to CKAN" href="http://catalog.data.ug/user/login">Login</a></li>
-</ul>
+-->
+
 </section> <!-- /.block -->
 <section class="block block-menu clearfix" id="block-menu-menu-social-media">
 
       
-  <ul class="menu nav"><li class="first leaf"><a title="Follow us on Facebook" href="https://www.facebook.com/datadotug">Facebook</a></li>
-<li class="last leaf"><a title="Follow us on Twitter" href="http://www.twitter.com/datadotug">Twitter</a></li>
+  <ul class="menu nav">
+
+<li class="first leaf"><a title="Follow us on Facebook" href="https://www.facebook.com/datadotug"> <span class="fa fa-facebook fa-lg"></span>&nbsp;Facebook</a></li>
+<li class="last leaf"><a title="Follow us on Twitter" href="http://www.twitter.com/datadotug"><span class="fa fa-twitter fa-lg"></span>&nbsp;Twitter</a></li>
 </ul>
 </section> <!-- /.block -->
 <section class="block block-system clearfix" id="block-system-powered-by">
@@ -47,6 +64,8 @@
       
   <span>Powered by <a href="http://www.ckan.org">CKAN</a></span>
 </section> <!-- /.block -->
+
+
   </div>
   {% block footer_debug %}
     {% if g.debug %}
