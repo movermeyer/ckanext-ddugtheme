@@ -2,7 +2,8 @@
 
 {% block styles %}
   {{ super() }}
-  <link rel="stylesheet" href="/bootstrap.css" />
-  <link rel="stylesheet" href="/site_base.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  {% resource 'ddugtheme/css/site_base.css' %}
+  {% resource 'ddugtheme/css/bootstrap.css' %}
+  
+
 {% endblock %}
