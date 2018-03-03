@@ -8,23 +8,23 @@
 .. image:: https://coveralls.io/repos/datadotug/ckanext-ddugtheme/badge.svg
   :target: https://coveralls.io/r/datadotug/ckanext-ddugtheme
 
-.. image:: https://pypip.in/download/ckanext-ddugtheme/badge.svg
+.. image:: https://img.shields.io/pypi/dm/ckanext-ddugtheme.svg
     :target: https://pypi.python.org/pypi//ckanext-ddugtheme/
     :alt: Downloads
 
-.. image:: https://pypip.in/version/ckanext-ddugtheme/badge.svg
+.. image:: https://img.shields.io/pypi/v/ckanext-ddugtheme.svg
     :target: https://pypi.python.org/pypi/ckanext-ddugtheme/
     :alt: Latest Version
 
-.. image:: https://pypip.in/py_versions/ckanext-ddugtheme/badge.svg
+.. image:: https://img.shields.io/pypi/pyversions/ckanext-ddugtheme.svg
     :target: https://pypi.python.org/pypi/ckanext-ddugtheme/
     :alt: Supported Python versions
 
-.. image:: https://pypip.in/status/ckanext-ddugtheme/badge.svg
+.. image:: https://img.shields.io/pypi/status/ckanext-ddugtheme.svg
     :target: https://pypi.python.org/pypi/ckanext-ddugtheme/
     :alt: Development Status
 
-.. image:: https://pypip.in/license/ckanext-ddugtheme/badge.svg
+.. image:: https://img.shields.io/pypi/l/ckanext-ddugtheme.svg
     :target: https://pypi.python.org/pypi/ckanext-ddugtheme/
     :alt: License
 
